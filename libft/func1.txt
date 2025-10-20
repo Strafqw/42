@@ -1,0 +1,28 @@
+• memset
+• bzero
+• memcpy
+• memccpy
+• memmove
+• memchr
+• memcmp
+• strlen d
+• strdup d
+• strcpy d
+• strncpy d
+• strcat d
+• strncat d
+• strlcat d
+• strchr d
+• strrchr d
+• strstr d
+• strnstr 
+• strcmp d
+• strncmp d
+• atoi d
+• isalpha d
+• isdigit d
+• isalnum d
+• isascii d
+• isprint d
+• toupper d
+• tolower d

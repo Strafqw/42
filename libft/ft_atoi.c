@@ -6,9 +6,11 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 18:25:12 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/18 18:28:48 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:15:56 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int atoi(const char *str)
 {

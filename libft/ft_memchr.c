@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 19:19:32 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 23:06:08 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/21 16:04:48 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:16:32 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strstr(const char *haystack, const char *needle)
-{
-    const char *h; 
-    const char *n;
+#include "libft.h"
 
-    if (*needle == '\0') //se o 1º char for nulo 
-        return (char *)haystack; //da cast e retorna a str
-    while (*haystack)
+void *memchr(const void *s1, int c, size_t n)
+{
+    const unsigned char *p1 = (unsigned char*)s1;
+    unsigned char uc = (unsigned char)c; // you could cast in loop but u do it here for efficiency
+
+    while (n--)
     {
-        h = haystack;
-        n = needle;
-        while (*h && *n && (*h == *n))
+        if (*p1 == uc)
         {
-            h++;
-            n++;
+            return (void *)p1;
         }
-        if (*n == '\0')
-            return (char *)haystack;
-        haystack++;
+        p1++;
     }
     return NULL;
 }

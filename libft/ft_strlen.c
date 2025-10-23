@@ -6,13 +6,15 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 22:38:16 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:38:17 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:21:13 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
+#include "libft.h"
+
+size_t ft_strlen(char *str)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while  (str[i])

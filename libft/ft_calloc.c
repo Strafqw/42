@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 22:38:20 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:38:22 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/22 17:16:00 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:16:06 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strncat(char *dest, const char *src, size_t n)
+#include "libft.h"
+
+void *ft_calloc(size_t nmemb, size_t size)
 {
-    size_t i;
-    size_t j;
-    
-    j = 0;
-    i = 0;
-    while (dest[i])
-    {
-        i++;
-    }
-    while (src[j] && j < n)
-    {
-        dest[i] = src[j];
-        j++;
-        i++;
-    }
-    dest[i] = '\0';
-    return dest;
+    void *ptr;
+    size_t total = nmemb * size;
+
+    ptr = malloc(total);
+    if (!ptr)
+        return NULL;
+
+    ft_bzero(ptr, total);
+    return ptr;
 }

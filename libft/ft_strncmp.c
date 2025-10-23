@@ -6,9 +6,11 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 22:38:25 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:38:26 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:19:12 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -16,7 +18,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
     while (i < n && s1[i] && s2[i])
     {
         if (s1[i] != s2[i])
-            return (s1[i] - s2[i])
+            return (s1[i] - s2[i]);
         i++;
     }
     if (i == n)

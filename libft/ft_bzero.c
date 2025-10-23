@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 22:37:38 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:37:40 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/22 17:15:25 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:15:50 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-strcat(char *dst, const char *src)
-{
-    int i;
-    int j;
+#include "libft.h"
 
-    i = 0;
-    while (dst[i])
+void ft_bzero(void *s, size_t n)
+{
+    unsigned char *s1 = (unsigned char *)s;
+    while (n--)
     {
-        i++;
+        *s1++ = 0;
     }
-    while (src[j])
-    {
-        dst[i] = src[j];
-        j++;
-        i++;
-    }
-    dst[i] = '\0';
-    return dst;
 }

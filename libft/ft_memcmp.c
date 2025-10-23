@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 22:38:29 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:38:30 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/21 15:49:13 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:16:35 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strncpy(char *dest, const char *src, unsigned int n)
-{
-    unsigned int i;
+#include "libft.h"
 
-    i = 0;
-    while (src[i] && i < n)
+int memcmp(const void *str1, const void *str2, size_t n)
+{
+    const unsigned char *p1 = (const unsigned char *)str1;
+    const unsigned char *p2 = (const unsigned char *)str2;
+
+    while (n--)
     {
-        dest[i] = src[i];
-        i++;
+        if (*p1 != *p2)
+        {
+            return (int)(*p1 - *p2);
+        }
+        p1++;
+        p2++;
     }
-    while (i < n)
-    {
-        dest[i] = '\0';
-        i++;
-    }
-    
-    return dest;
+    return 0;
 }

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 22:37:58 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:37:59 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/22 17:16:45 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:16:50 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char ft_strcpy(char *dest, char *src)
-{
-    int i;
+#include "libft.h"
 
-    i = 0;
-    while (src[i])
+void    *ft_memcpy(void *dst, const void *src, size_t n)
+{
+    unsigned char *d = (unsigned char *)dst;
+    const unsigned char *s = (const unsigned char *)src;
+
+    if (!dst && !src)  //if both are null
+        return NULL;
+    if (d == s || n == 0)
     {
-        dest[i] = src[i];
-        i++;
+        return dst;
     }
-    dest[i] = '\0';
-    return dest;
+    while (n--)
+        *d++ = *s++; //overwriting whatever is in dst
+    return dst;
 }

@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 22:37:43 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:37:45 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/22 17:37:08 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:38:03 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *str, int character)
+#include "libft.h"
+
+char *ft_strchr(const char *s, int c)
 {
-    while (*str)
+    while (*s)
     {
-        if (*str == (char)character)
-            return (char *)str;
-        str++;
+        if (*s == (char)c)
+            return (char *)s;
+        s++;
     }
-    if (*str == (char)character)
-        return (char *)str;
-    return 0;
+    if (*s == (char)c) //check null terminator
+        return (char *)s;
+    return NULL;
 }

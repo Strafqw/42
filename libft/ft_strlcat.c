@@ -1,14 +1,18 @@
-int strlen(char *str)
-{
-    int i = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/22 17:18:24 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/22 17:18:46 by joasampa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    while (str[i])
-    {
-        i++;
-    }
-    return i;
-}
+#include "libft.h"
 
+int strlen(char *str);
 
 size_t strlcat(char *dst, const char *src, size_t size)
 {

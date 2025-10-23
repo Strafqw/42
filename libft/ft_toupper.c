@@ -6,9 +6,11 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 22:39:22 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/19 22:39:23 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:20:00 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int ft_toupper(int c)
 {

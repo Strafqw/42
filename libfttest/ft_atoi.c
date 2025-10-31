@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:17:03 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/25 18:03:49 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/27 12:14:39 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/27 16:23:35 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_atoi(const char *str)
 {
-	unsigned char	*s1;
+	int	i;
+	int	sign;
+	int	resultado;
 
-	s1 = (unsigned char *)s;
-	while (n--)
-		*s1++ = (unsigned char)c;
-	return (s);
+	i = 0;
+	resultado = 0;
+	sign = 1;
+	while (*(str + i) == ' ' || (*(str + i) >= 9 && *(str + i) <= 13))
+		i++;
+	if (*(str + i) == '+' || *(str + i) == '-')
+	{
+		sign = (*(str + i) == '+') - (*(str + i) == '-');
+		i++;
+	}
+	while (*(str + i) >= '0' && *(str + i) <= '9')
+		resultado = resultado * 10 + (*(str + i++) - '0');
+	return (resultado * sign);
 }

@@ -1,23 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:17:03 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/25 18:03:49 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/30 11:23:55 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/31 14:33:26 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	intlen(int nb)
 {
-	unsigned char	*s1;
+	long	n;
+	int		len;
 
-	s1 = (unsigned char *)s;
-	while (n--)
-		*s1++ = (unsigned char)c;
+	n = nb;
+	len = (n <= 0);
+	if (n < 0)
+		n = -n;
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	int		len;
+	long	nb;
+	char	*s;
+
+	nb = n;
+	len = intlen(nb);
+	s = malloc(len + 1);
+	if (!s)
+		return (NULL);
+	s[len--] = '\0';
+	if (nb < 0)
+		nb = -nb;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb)
+	{
+		s[len--] = (nb % 10) + '0';
+		nb /= 10;
+	}
+	if (n < 0)
+		s[0] = '-';
 	return (s);
 }

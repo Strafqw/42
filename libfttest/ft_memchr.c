@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:17:03 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/25 18:03:49 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/27 00:47:55 by joasampa          #+#    #+#             */
+/*   Updated: 2025/10/27 00:57:43 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memchr(const void *s1, int c, size_t n)
 {
-	unsigned char	*s1;
+	unsigned char	*p1;
+	unsigned char	uc;
 
-	s1 = (unsigned char *)s;
+	p1 = (unsigned char *)s1;
+	uc = (unsigned char)c;
 	while (n--)
-		*s1++ = (unsigned char)c;
-	return (s);
+	{
+		if (*p1 == uc)
+		{
+			return ((void *)p1);
+		}
+		p1++;
+	}
+	return (NULL);
 }

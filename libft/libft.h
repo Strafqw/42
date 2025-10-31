@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:10:38 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/24 18:25:21 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/27 15:44:38 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
+# include <limits.h>
+# include <stdio.h>
 
 /* ---------------	CHARS		--------------- */
 int		ft_isalpha(int c);
@@ -28,13 +31,15 @@ int		ft_tolower(int c);
 
 /* ---------------	STRINGS		--------------- */
 size_t	ft_strlen(const char *str);
-char	strrchr(char *str, int character);
+char	*ft_strrchr(const char *str, int character);
 char	*ft_strrchr(const char *str, int character);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strdup(const char *s1);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /* ---------------   FILE DESCRIPTORS   --------------- */
 
@@ -49,5 +54,6 @@ void	*ft_calloc(size_t nmemb, size_t size);
 
 /* ---------------	NUMBERS		--------------- */
 int		ft_atoi(const char *str);
+char *ft_strtrim(char const *s1, char const *set);
 
 #endif

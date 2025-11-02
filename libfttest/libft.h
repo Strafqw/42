@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 20:47:44 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/30 20:47:48 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/10/31 20:39:25 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}		t_list;
+}					t_list;
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);

@@ -6,17 +6,30 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:40:10 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/01 16:36:12 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/06 19:51:36 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-    t_list *node;
+	t_list	*node;
 
-    node = malloc(sizeof(t_list *));
-    node->content = content;
-    return (node);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
+
+/*int main(void)
+{
+	char *str = "ruiii";
+	t_list *node;
+	node = ft_lstnew(str);
+	printf("node content : %s\n", (char *)node->content);
+	free(node);
+	return 0;
+}*/

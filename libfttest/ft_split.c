@@ -5,32 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 19:16:27 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/30 20:25:13 by joasampa         ###   ########.fr       */
+/*   Created: 2025/11/07 16:13:09 by joasampa          #+#    #+#             */
+/*   Updated: 2025/11/07 17:29:15 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countwords(const char *phrase, char c, char **newstr)
+int	countwords(const char *str, char c)
 {
-	size_t	i;
-	size_t	words;
+	int	words;
 
 	words = 0;
-	while (*phrase)
+	while (*str)
 	{
-		while (*phrase && *phrase == c)
-			phrase++;
-		if (*phrase)
+		while (*str && *str == c)
+			str++;
+		if (*str)
 		{
-			i = 0;
-			while (phrase[i] && phrase[i] != c)
-				i++;
-			if (i && newstr)
-				newstr[words] = ft_substr(phrase, 0, i);
 			words++;
-			phrase += i;
+			while (*str && *str != c)
+				str++;
 		}
 	}
 	return (words);
@@ -43,14 +38,67 @@ void	*ft_free(char **str, size_t tmn)
 	i = 0;
 	while (i < tmn)
 		free(str[i++]);
-	return (free(str), NULL);
+	free(str);
+	return (NULL);
+}
+
+static char	**fill_words(const char *s, char c, char **arr)
+{
+	int		i;
+	size_t	len;
+
+	i = 0;
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (!*s)
+			break ;
+		len = 0;
+		while (s[len] && s[len] != c)
+			len++;
+		arr[i] = ft_substr(s, 0, len);
+		if (!arr[i])
+			return (ft_free(arr, i));
+		i++;
+		s += len;
+	}
+	arr[i] = NULL;
+	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**newstr;
+	char	**arr;
+	int		wordcount;
 
-	newstr = ft_calloc(countwords(s, c, NULL) + 1, sizeof(char *));
-	countwords(s, c, newstr);
-	return (newstr);
+	if (!s)
+		return (NULL);
+	wordcount = countwords(s, c);
+	arr = ft_calloc(wordcount + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	return (fill_words(s, c, arr));
 }
+
+/*int main(void)
+{
+	char **result;
+	int i;
+
+	i = 0;
+	result = ft_split(" Hello W Orld", ' ');
+	if (!result)
+	{
+		printf("Allocation Failed\n");
+		return (1);
+	}
+	while (result[i])
+	{
+		printf("[%s]\n", result[i]);
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
+}*/

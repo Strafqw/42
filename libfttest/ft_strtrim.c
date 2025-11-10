@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:39:56 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/30 20:51:16 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:21:11 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j--;
 	return (ft_substr(s1, i, j - i));
 }
+/*
+int main(void)
+{
+	char const *s = "helloh";
+	char const *se = "h";
+	printf("%s\n", ft_strtrim(s, se));
+	return 0;
+}
+*/

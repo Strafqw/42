@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 21:07:11 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/26 21:10:32 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:33:50 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c -= 32);
+	return (c);
 }

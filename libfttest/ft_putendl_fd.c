@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 20:38:49 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/30 20:41:54 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:28:40 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
-	write(fd, '\n', 1);
+	ft_putchar_fd('\n', fd);
 }

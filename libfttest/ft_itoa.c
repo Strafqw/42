@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:23:55 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/31 14:33:26 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/10 00:58:23 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,9 @@ char	*ft_itoa(int n)
 		s[0] = '-';
 	return (s);
 }
+/*
+int main(void)
+{
+	printf("%s\n", ft_itoa(-12334));
+	return 0;
+}*/

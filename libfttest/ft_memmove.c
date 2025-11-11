@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 16:43:59 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/05 19:25:04 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:47:47 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	if ((!dest && !src) || dest == src || n == 0)
+	if (dest == src || n == 0)
 		return (dest);
 	if (d < s)
 		while (n--)

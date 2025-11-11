@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:00:57 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/07 13:01:08 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/10 23:53:23 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (len > i)
 		len = i;
 	sub = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!sub)
+		return (NULL);
 	ft_memcpy(sub, s + start, len);
 	return (sub);
 }

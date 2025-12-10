@@ -6,7 +6,7 @@
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 21:14:58 by joasampa          #+#    #+#             */
-/*   Updated: 2025/10/27 00:42:50 by joasampa         ###   ########.fr       */
+/*   Updated: 2025/11/28 18:55:38 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,13 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+
+int main()
+{
+	char src[] = "teste";
+	char *dst;
+
+	dst = ft_strchr(src, 1024);
+	printf("og : %p\n", src);
+	printf("og : %p\n", dst);	
+} 

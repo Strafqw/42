@@ -1,20 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 21:07:11 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/05 18:33:50 by joasampa         ###   ########.fr       */
+/*   Created: 2025/11/23 16:24:56 by joasampa          #+#    #+#             */
+/*   Updated: 2025/12/10 16:21:44 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_toupper(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (c -= 32);
-	return (c);
-}
+#include "get_next_line.h"

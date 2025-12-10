@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 17:29:58 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/07 16:05:39 by joasampa         ###   ########.fr       */
+/*   Created: 2025/11/19 16:48:29 by joasampa          #+#    #+#             */
+/*   Updated: 2025/11/28 17:52:51 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+int	ft_printf(const char *format, ...)
 {
-	char			*newstr;
-	unsigned int	i;
+	va_list	args;
+	int		len;
 
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	newstr = malloc((ft_strlen(s) + 1));
-	if (!newstr)
-		return (NULL);
-	while (s[i])
+	if (!format)
+		return (0);
+	va_start(args, format);
+	len = 0;
+	while (*format)
 	{
-		newstr[i] = f(i, s[i]);
-		i++;
+		if (*format == '%')
+		{
+			format++;
+			if (*format)
+				len += ft_handleformat(*format, args);
+			else
+				break ;
+		}
+		else
+			len += ft_putchar(*format);
+		format++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	va_end(args);
+	return (len);
 }

@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joasampa <joasampa@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 16:48:29 by joasampa          #+#    #+#             */
-/*   Updated: 2025/11/21 16:31:35 by joasampa         ###   ########.fr       */
+/*   Created: 2025/10/30 20:51:57 by joasampa          #+#    #+#             */
+/*   Updated: 2025/11/28 18:51:11 by joasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_putnbr_fd(int n, int fd)
 {
-	va_list	args;
-	int		len;
+	long	nb;
+	char	c;
 
-	if (!format)
-		return (0);
-	va_start(args, format);
-	len = 0;
-	while (*format)
+	nb = n;
+	if (nb < 0)
 	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format)
-				len += ft_handleformat(*format, args);
-			else
-				break ;
-		}
-		else
-			len += ft_putchar(*format);
-		format++;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
-	va_end(args);
-	return (len);
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+	{
+		c = nb + '0';
+		write(fd, &c, 1);
+	}
 }

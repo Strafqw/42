@@ -24,9 +24,9 @@ typedef struct s_stack
 }		t_stack;
 
 /* parsing */
-void	error_msg(void);
+void	error_msg(int *to_free);
 void	skip_spaces(char *s, int *i);
-int		read_int(char *s, int *i);
+int		read_int(char *s, int *i, int *to_free);
 int		count_arg(char *s);
 int		*parse(int ac, char **av, int *n);
 

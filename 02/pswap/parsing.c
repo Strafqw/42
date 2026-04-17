@@ -39,7 +39,7 @@ static void	check_dups(int *t, int n)
 		while (j < n)
 		{
 			if (t[i] == t[j])
-				error_msg();
+				error_msg(t);
 			j++;
 		}
 		i++;
@@ -62,7 +62,7 @@ static void	fill_array(int *t, int ac, char **av)
 			skip_spaces(av[a], &i);
 			if (!av[a][i])
 				break ;
-			t[k++] = read_int(av[a], &i);
+			t[k++] = read_int(av[a], &i, t);
 		}
 		a++;
 	}
@@ -74,7 +74,7 @@ int	*parse(int ac, char **av, int *n)
 
 	*n = count_ints(ac, av);
 	if (*n == 0)
-		error_msg();
+		error_msg(NULL);
 	t = malloc(sizeof(int) * (*n));
 	if (!t)
 		exit(1);

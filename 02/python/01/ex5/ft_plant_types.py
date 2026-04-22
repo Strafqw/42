@@ -76,8 +76,15 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, days):
+    def __init__(self, name: str, height: float, days: int, harvest_season: str, nutritional_value: int):
         super().__init__(name, height, days)
+        self.harvest_season = harvest_season
+        self.nutritional_value = nutritional_value
+
+    def show(self) -> None:
+        super().show()
+        print(f" Harvest season: {self.harvest_season}")
+        print(f" Nutritional value: {self.nutritional_value}")
 
 
 

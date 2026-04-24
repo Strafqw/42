@@ -5,11 +5,10 @@ def garden_intro() -> None:
 
     print("=== Welcome to My Garden ===")
     print("Plant:", name)
-    print("Height:", str(height))
+    print("Height:", height)
     print("Age:", age, "days")
     print("=== End of Program ===")
 
 
 if __name__ == "__main__":
     garden_intro()
-    

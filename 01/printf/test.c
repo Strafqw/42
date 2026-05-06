@@ -2,6 +2,5 @@
 #include <stdio.h>
 int main()
 {
-    ft_printf("%x\n", 255);
-    return 0;
+    ft_printf(0);
 }   

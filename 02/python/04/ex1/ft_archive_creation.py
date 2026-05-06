@@ -3,12 +3,12 @@ import sys
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: ft_archive_creation.py <file>")
-        sys.exit()
+        sys.exit(1)
     print("=== Cyber Archives Recovery & Preservation ===")
     print(f"Accessing file '{sys.argv[1]}'")
     try:
         f = open(sys.argv[1])
-    except OSError as e:
+    except (OSError, UnicodeDecodeError) as e:
         print(f"Error opening file '{sys.argv[1]}': {e}")
     else:
         content = f.read()
@@ -25,7 +25,11 @@ if __name__ == "__main__":
         content = content.replace("\n", "#\n")
         print(content)
         print("---")
-        filename = input("Enter new file name (or empty): ")
+        try:
+            filename = input("Enter new file name (or empty): ")
+        except (EOFError):
+            print("Not saving data.")
+            sys.exit(1)
         if not filename:
             print("Not saving data.")
         else:

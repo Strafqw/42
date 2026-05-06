@@ -8,7 +8,7 @@ if __name__ == "__main__":
     print(f"Accessing file '{sys.argv[1]}'")
     try:
         f = open(sys.argv[1])
-    except OSError as e:
+    except (OSError, UnicodeDecodeError) as e:
         sys.stderr.write(f"[STDERR] Error opening file '{sys.argv[1]}': {e}\n")
     else:
         content = f.read()
@@ -37,6 +37,7 @@ if __name__ == "__main__":
                 file.write(content)
                 file.close()
                 print(f"Data saved in file '{filename}'.")
-            except OSError as e:
-                sys.stderr.write(f"[STDERR] Error opening file '{sys.argv[1]}': {e}\n")
+            except (OSError, UnicodeDecodeError) as e:
+                sys.stderr.write(f"[STDERR] Error opening "
+                                 f"file '{sys.argv[1]}': {e}\n")
                 print("Data not saved.")

@@ -1,5 +1,4 @@
 import os
-import sys
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,7 +9,6 @@ api_key = os.environ.get("API_KEY")
 log_level = os.environ.get("LOG_LEVEL")
 zion_endpoint = os.environ.get("ZION_ENDPOINT")
 
-print()
 print("ORACLE STATUS: Reading the Matrix...")
 print()
 print("Configuration loaded:")

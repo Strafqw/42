@@ -1,4 +1,3 @@
-from __future__ import annotations
 import sys
 try:
     import pandas as pd
@@ -32,17 +31,17 @@ def check_dependencies() -> bool:
     return all_ok
 
 
-def gen_matrix() -> np.ndarray:
+def gen_matrix() -> "np.ndarray":
     return np.random.randn(1000)
 
 
-def analyze(data: np.ndarray) -> pd.DataFrame:
+def analyze(data: "np.ndarray") -> "pd.DataFrame":
     df = pd.DataFrame({"signal": data})
     print(df.describe())
     return df
 
 
-def visualize(df: pd.DataFrame) -> None:
+def visualize(df: "pd.DataFrame") -> None:
     plt.plot(df["signal"])
     plt.title("Matrix Data Analysis")
     plt.xlabel("Time")

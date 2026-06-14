@@ -2,11 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(cd /home/sampipampi/42/02/python/09)",
-      "Bash(venv/bin/python -m pip --version)",
-      "Bash(venv/bin/python -c \"import pydantic; print\\('pydantic ok', pydantic.__version__\\)\")",
-      "Bash(venv/bin/flake8 ex1/alien_contact.py)",
-      "Bash(venv/bin/mypy ex1/alien_contact.py)",
-      "Bash(venv/bin/python ex1/alien_contact.py)"
+      "Bash(venv/bin/mypy ex1/alien_contact.py)"
     ]
   }
 }

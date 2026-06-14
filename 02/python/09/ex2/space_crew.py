@@ -33,7 +33,6 @@ class SpaceMission(BaseModel):
 
     @model_validator(mode='after')
     def check_mission_rules(self):
-        # Rule 1: Mission ID must start with "M"
         if not self.mission_id.startswith("M"):
             raise ValueError("Mission ID must start with 'M'")
         has_leader = any(
@@ -54,6 +53,7 @@ class SpaceMission(BaseModel):
         if not all(m.is_active for m in self.crew):
             raise ValueError("All crew members must be active")
         return self
+
 
 def main() -> None:
     print("Space Mission Crew Validation")
@@ -86,8 +86,6 @@ def main() -> None:
         crew=crew,
         budget_millions=2500.0,
     )
-    print("Space Mission Crew Validation")
-    print("=" * 40)
     print("Valid mission created:")
     print(f"Mission: {mission.mission_name}")
     print(f"ID: {mission.mission_id}")
@@ -95,7 +93,43 @@ def main() -> None:
     print(f"Duration: {mission.duration_days} days")
     print(f"Budget: ${mission.budget_millions}M")
     print(f"Crew size: {len(crew)}")
-    print
-    
-    # ... print mission details (Mission, ID, Destination, Duration, Budget,
-    #     Crew size, then loop the crew members)
+    print("Crew members:")
+    for i in crew:
+        print(f"- {i.name} ({i.rank.value}) - {i.specialization}")
+    print()
+    print("=" * 41)
+    crew2 = [
+        CrewMember(
+            member_id="CM001",
+            name="Sarah Connor",
+            rank=Rank.LIEUTENANT,
+            age=45,
+            specialization="Mission Command",
+            years_experience=20,
+        ),
+        CrewMember(
+            member_id="CM002",
+            name="John Smith",
+            rank=Rank.LIEUTENANT,
+            age=38,
+            specialization="Navigation",
+            years_experience=12,
+        ),
+    ]
+    print("Expected validation error:")
+    try:
+        SpaceMission(
+            mission_id="M2025_MOON",
+            mission_name="Moon Base",
+            destination="Moon",
+            launch_date=datetime.now(),
+            duration_days=100,
+            crew=crew2,
+            budget_millions=500.0,
+        )
+    except ValidationError as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    main()

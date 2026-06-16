@@ -1,6 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel, Field, ValidationError, model_validator
 from enum import Enum
+from typing import Optional
 
 
 class ContactType(str, Enum):
@@ -18,7 +19,7 @@ class AlienContact(BaseModel):
     signal_strength: float = Field(ge=0.0, le=10.0)
     duration_minutes: int = Field(ge=1, le=1440)
     witness_count: int = Field(ge=1, le=100)
-    message_received: str | None = Field(default=None, max_length=500)
+    message_received: Optional[str] = Field(default=None, max_length=500)
     is_verified: bool = False
 
     @model_validator(mode='after')
